@@ -1,0 +1,23 @@
+// 13. Write a program to implement Dequeue using push() and pop() on both ends
+
+import java.util.*;
+
+class DequeExample {
+    public static void main(String[] args) {
+        Deque<Integer> deque = new LinkedList<>();
+
+        // Push elements to both ends
+        deque.addFirst(10);
+        deque.addLast(20);
+        deque.addFirst(5);
+        deque.addLast(25);
+
+        System.out.println("Deque after pushing: " + deque);
+
+        // Pop elements from both ends
+        deque.removeFirst();
+        deque.removeLast();
+
+        System.out.println("Deque after popping: " + deque);
+    }
+}
