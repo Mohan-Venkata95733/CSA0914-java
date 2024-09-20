@@ -1,0 +1,42 @@
+// 7. Create 3 interfaces with 1 method each sum(), avg(), and percentage() 
+// respectively. Now implement all 3 interfaces in your class.
+
+interface Sum {
+    int sum(int a, int b);
+}
+
+interface Average {
+    double avg(int[] numbers);
+}
+
+interface Percentage {
+    double percentage(int total, int obtained);
+}
+
+class Calculation implements Sum, Average, Percentage {
+    @Override
+    public int sum(int a, int b) {
+        return a + b;
+    }
+
+    @Override
+    public double avg(int[] numbers) {
+        int total = 0;
+        for (int number : numbers) {
+            total += number;
+        }
+        return (double) total / numbers.length;
+    }
+
+    @Override
+    public double percentage(int total, int obtained) {
+        return ((double) obtained / total) * 100;
+    }
+
+    public static void main(String[] args) {
+        Calculation calc = new Calculation();
+        System.out.println("Sum: " + calc.sum(10, 20));
+        System.out.println("Average: " + calc.avg(new int[]{10, 20, 30, 40, 50}));
+        System.out.println("Percentage: " + calc.percentage(100, 85));
+    }
+}
