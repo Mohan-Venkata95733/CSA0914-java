@@ -1,0 +1,57 @@
+// 8. Interface Tree and extending Branch1 and Branch2 with methods fruits(), leaves(), flowers()
+
+interface Tree {
+    void fruits(int a, int b);
+
+    void leaves(int a, int b, int c);
+
+    void flowers(int a, int b, int c, int d);
+}
+
+class Branch1 implements Tree {
+    @Override
+    public void fruits(int a, int b) {
+        System.out.println("Branch1 - Fruits count: " + (a + b));
+    }
+
+    @Override
+    public void leaves(int a, int b, int c) {
+        System.out.println("Branch1 - Leaves count: " + (a + b + c));
+    }
+
+    @Override
+    public void flowers(int a, int b, int c, int d) {
+        System.out.println("Branch1 - Flowers count: " + (a + b + c + d));
+    }
+}
+
+class Branch2 implements Tree {
+    @Override
+    public void fruits(int a, int b) {
+        System.out.println("Branch2 - Fruits count: " + (a * b));
+    }
+
+    @Override
+    public void leaves(int a, int b, int c) {
+        System.out.println("Branch2 - Leaves count: " + (a * b * c));
+    }
+
+    @Override
+    public void flowers(int a, int b, int c, int d) {
+        System.out.println("Branch2 - Flowers count: " + (a * b * c * d));
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Branch1 branch1 = new Branch1();
+        branch1.fruits(2, 3);
+        branch1.leaves(1, 2, 3);
+        branch1.flowers(1, 2, 3, 4);
+
+        Branch2 branch2 = new Branch2();
+        branch2.fruits(2, 3);
+        branch2.leaves(1, 2, 3);
+        branch2.flowers(1, 2, 3, 4);
+    }
+}
