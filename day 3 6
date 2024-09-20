@@ -1,0 +1,42 @@
+// 6. Interface with 4 methods add(), sub(), mul(), and div()
+
+interface Calculator {
+    void add(int a, int b);
+
+    void sub(int a, int b);
+
+    void mul(int a, int b);
+
+    void div(int a, int b);
+}
+
+class CalculatorImpl implements Calculator {
+    @Override
+    public void add(int a, int b) {
+        System.out.println("Sum: " + (a + b));
+    }
+
+    @Override
+    public void sub(int a, int b) {
+        System.out.println("Difference: " + (a - b));
+    }
+
+    @Override
+    public void mul(int a, int b) {
+        System.out.println("Product: " + (a * b));
+    }
+
+    @Override
+    public void div(int a, int b) {
+        if (b != 0) System.out.println("Quotient: " + (a / b));
+        else System.out.println("Cannot divide by zero");
+    }
+
+    public static void main(String[] args) {
+        CalculatorImpl calc = new CalculatorImpl();
+        calc.add(10, 20);
+        calc.sub(20, 10);
+        calc.mul(10, 5);
+        calc.div(20, 4);
+    }
+}
