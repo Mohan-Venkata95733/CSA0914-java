@@ -1,0 +1,25 @@
+// 9. Create a Set and find Union, Intersection, and Difference of 2 sets
+
+import java.util.*;
+
+class SetOperations {
+    public static void main(String[] args) {
+        Set<Integer> set1 = new HashSet<>(Arrays.asList(1, 2, 3, 4, 5));
+        Set<Integer> set2 = new HashSet<>(Arrays.asList(4, 5, 6, 7, 8));
+
+        // Union
+        Set<Integer> unionSet = new HashSet<>(set1);
+        unionSet.addAll(set2);
+        System.out.println("Union: " + unionSet);
+
+        // Intersection
+        Set<Integer> intersectionSet = new HashSet<>(set1);
+        intersectionSet.retainAll(set2);
+        System.out.println("Intersection: " + intersectionSet);
+
+        // Difference
+        Set<Integer> differenceSet = new HashSet<>(set1);
+        differenceSet.removeAll(set2);
+        System.out.println("Difference: " + differenceSet);
+    }
+}
