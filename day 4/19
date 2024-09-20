@@ -1,0 +1,28 @@
+// 12. Write a program for the following to implement TreeSet and SortedSet
+// a) Sort even numbers in ascending order and odd numbers in descending order using SortedSet
+// b) Use TreeSet to perform binary search
+// c) Use TreeSet to perform Red-Black tree operations
+
+import java.util.*;
+
+class TreeSetExample {
+    public static void main(String[] args) {
+        // a) Sort even numbers in ascending order and odd numbers in descending order using SortedSet
+        SortedSet<Integer> sortedSet = new TreeSet<>((a, b) -> {
+            if (a % 2 == 0 && b % 2 == 0) return Integer.compare(a, b);
+            if (a % 2 != 0 && b % 2 != 0) return Integer.compare(b, a);
+            return (a % 2 == 0) ? -1 : 1;
+        });
+
+        sortedSet.addAll(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+        System.out.println("Sorted set (even asc, odd desc): " + sortedSet);
+
+        // b) Use TreeSet to perform binary search
+        TreeSet<Integer> treeSet = new TreeSet<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+        System.out.println("Binary search for element 5: " + treeSet.contains(5));
+
+        // c) Red-Black tree operations (TreeSet is a Red-Black tree)
+        System.out.println("First element: " + treeSet.first());
+        System.out.println("Last element: " + treeSet.last());
+    }
+}
