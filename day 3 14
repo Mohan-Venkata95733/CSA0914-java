@@ -1,0 +1,20 @@
+// 14. Multiple type parameter generic class
+
+class MultipleGenericClass<T, U> {
+    private T obj1;
+    private U obj2;
+
+    MultipleGenericClass(T obj1, U obj2) {
+        this.obj1 = obj1;
+        this.obj2 = obj2;
+    }
+
+    void display() {
+        System.out.println("T: " + obj1 + ", U: " + obj2);
+    }
+
+    public static void main(String[] args) {
+        MultipleGenericClass<Integer, String> obj = new MultipleGenericClass<>(10, "Test");
+        obj.display();
+    }
+}
