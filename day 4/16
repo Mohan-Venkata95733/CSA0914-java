@@ -1,0 +1,40 @@
+// 6. Create an interface with 4 methods called add(), sub(), mul(), and div() 
+// then give implementation for all in the implementing class.
+
+interface ArithmeticOperations {
+    int add(int a, int b);
+    int sub(int a, int b);
+    int mul(int a, int b);
+    int div(int a, int b);
+}
+
+class Calculator implements ArithmeticOperations {
+    @Override
+    public int add(int a, int b) {
+        return a + b;
+    }
+
+    @Override
+    public int sub(int a, int b) {
+        return a - b;
+    }
+
+    @Override
+    public int mul(int a, int b) {
+        return a * b;
+    }
+
+    @Override
+    public int div(int a, int b) {
+        if (b == 0) throw new ArithmeticException("Division by zero");
+        return a / b;
+    }
+
+    public static void main(String[] args) {
+        Calculator calc = new Calculator();
+        System.out.println("Addition: " + calc.add(10, 5));
+        System.out.println("Subtraction: " + calc.sub(10, 5));
+        System.out.println("Multiplication: " + calc.mul(10, 5));
+        System.out.println("Division: " + calc.div(10, 5));
+    }
+}
