@@ -1,0 +1,42 @@
+// 6. Interface with 4 methods add(), sub(), mul(), div()
+
+interface Operations {
+    int add(int a, int b);
+
+    int sub(int a, int b);
+
+    int mul(int a, int b);
+
+    int div(int a, int b);
+}
+
+class OperationsImpl implements Operations {
+    @Override
+    public int add(int a, int b) {
+        return a + b;
+    }
+
+    @Override
+    public int sub(int a, int b) {
+        return a - b;
+    }
+
+    @Override
+    public int mul(int a, int b) {
+        return a * b;
+    }
+
+    @Override
+    public int div(int a, int b) {
+        if (b == 0) throw new ArithmeticException("Division by zero");
+        return a / b;
+    }
+
+    public static void main(String[] args) {
+        Operations ops = new OperationsImpl();
+        System.out.println("Add: " + ops.add(10, 5));
+        System.out.println("Sub: " + ops.sub(10, 5));
+        System.out.println("Mul: " + ops.mul(10, 5));
+        System.out.println("Div: " + ops.div(10, 5));
+    }
+}
