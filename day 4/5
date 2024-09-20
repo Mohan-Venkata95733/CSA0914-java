@@ -1,0 +1,50 @@
+// 5. Abstract class with 2 abstract methods and 3 concrete methods
+
+abstract class Statistics {
+    public abstract double total(double[] data);
+
+    public abstract double average(double[] data);
+
+    public double mean(double[] data) {
+        return total(data) / data.length;
+    }
+
+    public double mode(double[] data) {
+        Map<Double, Integer> frequencyMap = new HashMap<>();
+        for (double num : data) {
+            frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
+        }
+        return frequencyMap.entrySet().stream().max(Map.Entry.comparingByValue()).get().getKey();
+    }
+
+    public double median(double[] data) {
+        Arrays.sort(data);
+        if (data.length % 2 == 0) {
+            return (data[data.length / 2 - 1] + data[data.length / 2]) / 2;
+        } else {
+            return data[data.length / 2];
+        }
+    }
+}
+
+class StatsImpl extends Statistics {
+    @Override
+    public double total(double[] data) {
+        return Arrays.stream(data).sum();
+    }
+
+    @Override
+    public double average(double[] data) {
+        return total(data) / data.length;
+    }
+
+    public static void main(String[] args) {
+        StatsImpl stats = new StatsImpl();
+        double[] data = {1, 2, 2, 3, 4};
+        System.out.println("Total: " + stats.total(data));
+        System.out.println("Average: " + stats.average(data));
+        System.out.println("Mean: " + stats.mean(data));
+        System.out.println("Mode: " + stats.mode(data));
+        System.out.println("Median: " + stats.median(data));
+    }
+}
