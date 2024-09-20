@@ -1,0 +1,15 @@
+// 2. Function to rotate a list to the right by k places
+
+import java.util.*;
+
+class RotateList {
+    public static <T> void rotateList(List<T> list, int k) {
+        Collections.rotate(list, k);
+    }
+
+    public static void main(String[] args) {
+        List<Integer> list = Arrays.asList(1, 2, 3, 4, 5);
+        rotateList(list, 2);
+        System.out.println(list);
+    }
+}
