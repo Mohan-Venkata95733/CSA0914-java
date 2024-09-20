@@ -1,0 +1,63 @@
+// 5. Create an abstract class with 2 abstract methods (total() and average()) 
+// and 3 concrete methods (mean(), mode(), median()). Now extend the abstract class from a concrete class 
+// and use all the methods in that abstract class
+
+abstract class Statistics {
+    public abstract int total(int[] numbers);
+    public abstract double average(int[] numbers);
+
+    public double mean(int[] numbers) {
+        return average(numbers);
+    }
+
+    public int mode(int[] numbers) {
+        int maxValue = 0, maxCount = 0;
+
+        for (int i = 0; i < numbers.length; ++i) {
+            int count = 0;
+            for (int j = 0; j < numbers.length; ++j) {
+                if (numbers[j] == numbers[i]) ++count;
+            }
+            if (count > maxCount) {
+                maxCount = count;
+                maxValue = numbers[i];
+            }
+        }
+        return maxValue;
+    }
+
+    public double median(int[] numbers) {
+        Arrays.sort(numbers);
+        if (numbers.length % 2 == 0)
+            return (numbers[numbers.length / 2 - 1] + numbers[numbers.length / 2]) / 2.0;
+        else
+            return numbers[numbers.length / 2];
+    }
+}
+
+class StatsImpl extends Statistics {
+    @Override
+    public int total(int[] numbers) {
+        int sum = 0;
+        for (int number : numbers) {
+            sum += number;
+        }
+        return sum;
+    }
+
+    @Override
+    public double average(int[] numbers) {
+        return (double) total(numbers) / numbers.length;
+    }
+
+    public static void main(String[] args) {
+        StatsImpl stats = new StatsImpl();
+        int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+        System.out.println("Total: " + stats.total(numbers));
+        System.out.println("Average: " + stats.average(numbers));
+        System.out.println("Mean: " + stats.mean(numbers));
+        System.out.println("Mode: " + stats.mode(numbers));
+        System.out.println("Median: " + stats.median(numbers));
+    }
+}
