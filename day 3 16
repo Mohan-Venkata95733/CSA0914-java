@@ -1,0 +1,23 @@
+// 16. Restrict use of primitive types using generics
+
+class RestrictedGenerics<T extends Number> {
+    private T value;
+
+    RestrictedGenerics(T value) {
+        this.value = value;
+    }
+
+    void display() {
+        System.out.println("Value: " + value);
+    }
+
+    public static void main(String[] args) {
+        RestrictedGenerics<Integer> intObj = new RestrictedGenerics<>(10);
+        intObj.display();
+
+        RestrictedGenerics<Double> doubleObj = new RestrictedGenerics<>(20.5);
+        doubleObj.display();
+        
+        // RestrictedGenerics<String> strObj = new RestrictedGenerics<>("Test"); // Not allowed
+    }
+}
