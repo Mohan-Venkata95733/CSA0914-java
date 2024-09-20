@@ -1,0 +1,10 @@
+// 19. Use UUID to generate a random Universally Unique Identifier
+
+import java.util.UUID;
+
+class UUIDExample {
+    public static void main(String[] args) {
+        UUID uuid = UUID.randomUUID();
+        System.out.println("Generated UUID: " + uuid.toString());
+    }
+}
