@@ -1,0 +1,26 @@
+// 9. Using static keyword
+
+class StaticExample {
+    static int staticVar;
+
+    static void staticMethod() {
+        System.out.println("Static Method: " + staticVar);
+    }
+
+    static {
+        staticVar = 100;
+        System.out.println("Static Block: " + staticVar);
+    }
+
+    static class StaticNestedClass {
+        void display() {
+            System.out.println("Static Nested Class");
+        }
+    }
+
+    public static void main(String[] args) {
+        StaticExample.staticMethod();
+        StaticExample.StaticNestedClass nestedClass = new StaticExample.StaticNestedClass();
+        nestedClass.display();
+    }
+}
