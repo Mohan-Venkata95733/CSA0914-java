@@ -1,0 +1,14 @@
+// 15. Using generics on methods example
+
+class GenericMethods {
+    public <T> void display(T element) {
+        System.out.println("Element: " + element);
+    }
+
+    public static void main(String[] args) {
+        GenericMethods gm = new GenericMethods();
+        gm.display(100);
+        gm.display("Generic Method");
+        gm.display(12.34);
+    }
+}
