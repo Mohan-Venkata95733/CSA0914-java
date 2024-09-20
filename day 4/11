@@ -1,0 +1,17 @@
+// 11. Create a Set to find unique elements and largest element
+
+import java.util.*;
+
+class UniqueAndLargest {
+    public static void main(String[] args) {
+        Set<Integer> set = new HashSet<>(Arrays.asList(5, 2, 8, 1, 9, 3, 3, 5));
+
+        // Unique elements
+        Set<Integer> uniqueElements = new HashSet<>(set);
+        System.out.println("Unique elements: " + uniqueElements);
+
+        // Largest element
+        int largestElement = Collections.max(set);
+        System.out.println("Largest element: " + largestElement);
+    }
+}
