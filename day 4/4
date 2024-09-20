@@ -1,0 +1,16 @@
+// 4. Function to find the missing number from a list
+
+import java.util.*;
+
+class MissingNumber {
+    public static int findMissingNumber(List<Integer> list, int n) {
+        int expectedSum = n * (n + 1) / 2;
+        int actualSum = list.stream().mapToInt(Integer::intValue).sum();
+        return expectedSum - actualSum;
+    }
+
+    public static void main(String[] args) {
+        List<Integer> list = Arrays.asList(0, 1, 3, 4, 5);
+        System.out.println(findMissingNumber(list, 5));
+    }
+}
