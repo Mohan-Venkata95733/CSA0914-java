@@ -1,0 +1,57 @@
+// 8. Create an interface called Tree and extend 2 classes from it called Branch1 and Branch2.
+// Tree should contain methods fruits(), leaves() and flowers()
+
+interface Tree {
+    void fruits(int count1, int count2);
+
+    void leaves(int count1, int count2, int count3);
+
+    void flowers(int count1, int count2, int count3, int count4);
+}
+
+class Branch1 implements Tree {
+    @Override
+    public void fruits(int count1, int count2) {
+        System.out.println("Branch1 Fruits: " + count1 + ", " + count2);
+    }
+
+    @Override
+    public void leaves(int count1, int count2, int count3) {
+        System.out.println("Branch1 Leaves: " + count1 + ", " + count2 + ", " + count3);
+    }
+
+    @Override
+    public void flowers(int count1, int count2, int count3, int count4) {
+        System.out.println("Branch1 Flowers: " + count1 + ", " + count2 + ", " + count3 + ", " + count4);
+    }
+}
+
+class Branch2 implements Tree {
+    @Override
+    public void fruits(int count1, int count2) {
+        System.out.println("Branch2 Fruits: " + count1 + ", " + count2);
+    }
+
+    @Override
+    public void leaves(int count1, int count2, int count3) {
+        System.out.println("Branch2 Leaves: " + count1 + ", " + count2 + ", " + count3);
+    }
+
+    @Override
+    public void flowers(int count1, int count2, int count3, int count4) {
+        System.out.println("Branch2 Flowers: " + count1 + ", " + count2 + ", " + count3 + ", " + count4);
+    }
+
+    public static void main(String[] args) {
+        Branch1 branch1 = new Branch1();
+        Branch2 branch2 = new Branch2();
+
+        branch1.fruits(5, 10);
+        branch1.leaves(2, 4, 6);
+        branch1.flowers(1, 3, 5, 7);
+
+        branch2.fruits(7, 9);
+        branch2.leaves(3, 6, 9);
+        branch2.flowers(2, 4, 6, 8);
+    }
+}
