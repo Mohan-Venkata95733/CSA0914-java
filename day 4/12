@@ -1,0 +1,17 @@
+// 12. Implement TreeSet and SortedSet for sorting even numbers in ascending order
+// and odd numbers in descending order
+
+import java.util.*;
+
+class CustomSorting {
+    public static void main(String[] args) {
+        SortedSet<Integer> sortedSet = new TreeSet<>((a, b) -> {
+            if (a % 2 == 0 && b % 2 == 0) return a - b;
+            if (a % 2 != 0 && b % 2 != 0) return b - a;
+            return (a % 2 == 0) ? -1 : 1;
+        });
+
+        sortedSet.addAll(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+        System.out.println("Sorted set: " + sortedSet);
+    }
+}
