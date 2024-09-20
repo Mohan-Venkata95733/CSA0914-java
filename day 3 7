@@ -1,0 +1,37 @@
+// 7. Implementing 3 interfaces sum(), avg(), and percentage()
+
+interface Sum {
+    void sum(int a, int b);
+}
+
+interface Avg {
+    void avg(int a, int b);
+}
+
+interface Percentage {
+    void percentage(int obtained, int total);
+}
+
+class Calculation implements Sum, Avg, Percentage {
+    @Override
+    public void sum(int a, int b) {
+        System.out.println("Sum: " + (a + b));
+    }
+
+    @Override
+    public void avg(int a, int b) {
+        System.out.println("Average: " + ((a + b) / 2));
+    }
+
+    @Override
+    public void percentage(int obtained, int total) {
+        System.out.println("Percentage: " + ((obtained * 100.0) / total) + "%");
+    }
+
+    public static void main(String[] args) {
+        Calculation calc = new Calculation();
+        calc.sum(10, 20);
+        calc.avg(10, 20);
+        calc.percentage(450, 500);
+    }
+}
