@@ -1,0 +1,64 @@
+// 5. Abstract class with 2 abstract methods and 3 concrete methods
+
+abstract class Stats {
+    abstract void total(int[] arr);
+
+    abstract void average(int[] arr);
+
+    void mean(int[] arr) {
+        int sum = 0;
+        for (int num : arr) sum += num;
+        System.out.println("Mean: " + (sum / arr.length));
+    }
+
+    void mode(int[] arr) {
+        int maxCount = 0, mode = arr[0];
+        for (int i = 0; i < arr.length; i++) {
+            int count = 0;
+            for (int j = 0; j < arr.length; j++) {
+                if (arr[j] == arr[i]) count++;
+            }
+            if (count > maxCount) {
+                maxCount = count;
+                mode = arr[i];
+            }
+        }
+        System.out.println("Mode: " + mode);
+    }
+
+    void median(int[] arr) {
+        java.util.Arrays.sort(arr);
+        if (arr.length % 2 == 0)
+            System.out.println("Median: " + (arr[arr.length / 2 - 1] + arr[arr.length / 2]) / 2.0);
+        else
+            System.out.println("Median: " + arr[arr.length / 2]);
+    }
+}
+
+class ConcreteStats extends Stats {
+    @Override
+    void total(int[] arr) {
+        int sum = 0;
+        for (int num : arr) sum += num;
+        System.out.println("Total: " + sum);
+    }
+
+    @Override
+    void average(int[] arr) {
+        int sum = 0;
+        for (int num : arr) sum += num;
+        System.out.println("Average: " + (sum / arr.length));
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5, 6, 7};
+        ConcreteStats stats = new ConcreteStats();
+        stats.total(arr);
+        stats.average(arr);
+        stats.mean(arr);
+        stats.mode(arr);
+        stats.median(arr);
+    }
+}
