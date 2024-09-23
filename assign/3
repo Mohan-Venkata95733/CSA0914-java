@@ -1,0 +1,60 @@
+// Base class
+class Vehicle {
+    int speed;
+
+    // Constructor for Vehicle
+    Vehicle(int speed) {
+        this.speed = speed;
+    }
+
+    // Method to display vehicle details
+    void displayInfo() {
+        System.out.println("Speed: " + speed + " km/h");
+    }
+}
+
+// Derived class
+class Car extends Vehicle {
+    String fuelType;
+
+    // Constructor for Car class using super() to call the Vehicle constructor
+    Car(int speed, String fuelType) {
+        super(speed);
+        this.fuelType = fuelType;
+    }
+
+    // Overriding method to display car details
+    @Override
+    void displayInfo() {
+        super.displayInfo();
+        System.out.println("Fuel Type: " + fuelType);
+    }
+}
+
+// Derived class from Car
+class ElectricCar extends Car {
+    int batteryCapacity;
+
+    // Constructor for ElectricCar using super() to call the Car constructor
+    ElectricCar(int speed, String fuelType, int batteryCapacity) {
+        super(speed, fuelType);
+        this.batteryCapacity = batteryCapacity;
+    }
+
+    // Overriding method to display electric car details
+    @Override
+    void displayInfo() {
+        super.displayInfo();
+        System.out.println("Battery Capacity: " + batteryCapacity + " kWh");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Create an ElectricCar object
+        ElectricCar myElectricCar = new ElectricCar(150, "Electric", 75);
+
+        // Display the properties of the ElectricCar object
+        myElectricCar.displayInfo();
+    }
+}
