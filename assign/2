@@ -1,0 +1,44 @@
+// Base class
+class Person {
+    String name;
+    int age;
+
+    // Constructor for Person class
+    Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // Method to display person details
+    void displayPersonInfo() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+    }
+}
+
+// Derived class
+class Student extends Person {
+    String grade;
+
+    // Constructor for Student class that uses super() to call the base class constructor
+    Student(String name, int age, String grade) {
+        super(name, age);  // Calling the constructor of the base class (Person)
+        this.grade = grade;
+    }
+
+    // Method to display student details
+    void displayStudentInfo() {
+        displayPersonInfo();  // Call the method from the base class to display name and age
+        System.out.println("Grade: " + grade);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Create a Student object with name, age, and grade
+        Student student = new Student("Alice", 20, "A");
+
+        // Display the student's details
+        student.displayStudentInfo();
+    }
+}
