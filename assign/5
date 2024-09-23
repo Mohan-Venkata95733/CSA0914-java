@@ -1,0 +1,52 @@
+// Base class
+class Employee {
+    private String name;          // Private field (not accessible outside this class)
+    protected int salary;         // Protected field (accessible in derived classes)
+    public String department;     // Public field (accessible everywhere)
+
+    // Constructor
+    public Employee(String name, int salary, String department) {
+        this.name = name;
+        this.salary = salary;
+        this.department = department;
+    }
+
+    // Public method to display employee information
+    public void displayInfo() {
+        System.out.println("Name: " + name);
+        System.out.println("Salary: " + salary);
+        System.out.println("Department: " + department);
+    }
+}
+
+// Derived class
+class Manager extends Employee {
+
+    // Constructor for Manager class
+    public Manager(String name, int salary, String department) {
+        super(name, salary, department);
+    }
+
+    // Method to access fields of the base class
+    public void accessFields() {
+        // Can't access private field 'name' directly. This will cause a compilation error:
+        // System.out.println("Name: " + name);  // Error: 'name' has private access in 'Employee'
+
+        // Can access protected and public fields
+        System.out.println("Salary: " + salary);         // Protected (Accessible)
+        System.out.println("Department: " + department); // Public (Accessible)
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Create a Manager object
+        Manager manager = new Manager("Alice", 70000, "HR");
+
+        // Display employee details using public method
+        manager.displayInfo();
+
+        // Access protected and public fields from Manager class
+        manager.accessFields();
+    }
+}
